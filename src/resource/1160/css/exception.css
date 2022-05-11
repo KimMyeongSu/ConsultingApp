@@ -1,0 +1,38 @@
+/*
+	녹색 처리해달라 해서 만듬.
+	(background) #34406a -> #346a42
+	(border) #244d30 -> #244d30
+	(td) #343f6a -> #378a4d
+	(th:border) #495379 -> #497953
+*/
+
+
+/*
+// 얘는 글자임
+.info li a{color:#346a42; text-decoration:none;}
+*/
+.navy_bg_box{background:#346a42; height:700px}
+.navy_bg_box .left_tab div div { background:#f0f0f0; color:#346a42;border:3px solid #346a42;border-right:0; font-size:14px; float:left; padding:10px 0; width:78px; font-weight:normal; cursor:pointer;}
+.navy_bg_box .left_tab div div:last-child{width:82px;border-right:3px solid #346a42;}
+.navy_bg_box .left_tab div div.x-tab-active{background:#346a42; color:#fff;}
+.top_bar{background:#346a42; height:40px; position:relative;}
+#layer {position:absolute;left:50%;background:#346a42;}
+#layer div.cont{background:#346a42;padding:10px 10px 5px 10px;line-height:20px;}
+.x-list1-inner {width:100%;background:#346a42; text-align:left;}
+.x-nested-list1-inner {width:100%;background:#346a42; text-align:left;}
+#optionSettingPanel div.x-toggle-on {
+  background-image: none;
+  background-color: #346a42;
+  border: 1px solid #346a42;
+}
+.toolbar1 {background:#346a42;text-align:center; border-bottom:solid 1px #244d30; color:#fff; height:50px;}
+
+
+.left_subtit{text-align:center; padding:16px 0; border-bottom:solid 1px #244d30;}
+.left_list li{padding:16px 20px; border-bottom:solid 1px #244d30;}
+.pop_list a li{padding:16px 20px; border-bottom:solid 1px #244d30; color:#fff; font-size:14px}
+.x-list1-item-relative {cursor:pointer;color: #fff;font-size:14px; padding:16px 20px; border-bottom:solid 1px #244d30;}
+.x-nested-list1-item-relative {cursor:pointer;color: #fff;font-size:14px; padding:16px 20px; border-bottom:solid 1px #244d30;}
+
+.rainbow_tbl td.green{color:#378a4d;}
+.rainbow_tbl th.green{background:#378a4d; border-bottom:solid 1px #497953; border-left:solid 1px #497953;}

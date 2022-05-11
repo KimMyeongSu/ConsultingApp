@@ -1,0 +1,10 @@
+body { text-align:center;}
+#main_wrap { position:absolute;left:50%;top:50%;background:url(../image/main_bg.jpg) no-repeat center center;width:1024px;height:768px;margin:-384px 0 0 -512px }
+#main_wrap nav { text-align:center;margin:525px auto 0 auto; z-index:0;padding-left:100px;}
+#main_wrap nav .nbsp { margin-left:54px;}
+
+#mainbtn01 { background-image:url(../../../img/indexC/btn01_visit.png); width:198px; height:198px; padding:0 }
+#mainbtn02 { background-image:url(../../../img/indexC/btn02_mocktest.png); width:198px; height:198px; padding:0 }
+#mainbtn03 { background-image:url(../../../img/indexC/btn03_admin.png); width:198px; height:198px; padding:0 }
+
+tspan {letter-spacing : -1px;font-size:12px;} /* 그래프의 글자 영역들 */

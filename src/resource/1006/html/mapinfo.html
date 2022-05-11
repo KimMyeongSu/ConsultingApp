@@ -1,0 +1,109 @@
+﻿<script>
+    $("#address").hide();  
+</script>
+
+
+<div style="font-size:12pt; color:#37618f; cursor:pointer;padding-left:15px;margin-bottom:20px;text-align:left;line-height:150%;">
+<span onclick="$('#gangneung').show(); $('#wonju').hide(); GoPoint(37.7701694,128.869039);" style="cursor:pointer">
+    <li>
+        - 강릉캠퍼스 : 강원도 강릉시 죽헌길 7
+    </li>
+</span>
+<span onclick="$('#wonju').show(); $('#gangneung').hide(); GoPoint(37.3049517,127.923630);" style="cursor:pointer">
+    <li>
+        - 원주캠퍼스 : 강원도 원주시 흥업면 남원로 150
+    </li>
+</span>
+</div>
+
+
+
+<div id="gangneung">
+    <h3>강릉원주대학교 강릉캠퍼스 교통편 안내</h3>
+    <table class="darkgray_tbl2 bline mb14" cellpadding="0" cellspacing="0" border="0">
+	    <caption> 강릉원주대학교 강릉캠퍼스 교통편 안내</caption>
+	    <colgroup>
+	    <col width="20%" />
+	    <col width="80%" />
+	    </colgroup>
+	    <thead>
+		    <tr>
+			    <th sscope="col">교통편</th>
+			    <th scope="col">오는방법</th>
+		    </tr>
+	    </thead>
+	    <tbody>
+		    <tr>
+			    <td>시내버스</td>
+			    <td class="al_left">200번, 201번, 203번, 204번, 205번</td>
+		    </tr>
+		    <tr>
+			    <td>시외/고속버스</td>
+			    <td class="al_left">택시이용 (3분소요)</td>
+		    </tr>
+		    <tr>
+			    <td>승용차</td>
+			    <td class="al_left">강릉IC -> 영동고속도로 강릉톨게이트 -> 금산IC -> 강릉시내방향 -> 시청방향 -> 강릉교차로에서 양양, 속초방향으로 1분</td>
+		    </tr>
+	    </tbody>
+    </table>
+</div>
+
+<div id="wonju" style="display:none">
+    <h3>강릉원주대학교 원주캠퍼스 교통편 안내</h3>
+    <table class="darkgray_tbl2 bline mb14" cellpadding="0" cellspacing="0" border="0">
+	    <caption> 강릉원주대학교 원주캠퍼스 교통편 안내</caption>
+	    <colgroup>
+	    <col width="11%" />
+	    <col width="15%" />
+	    <col width="74%" />
+	    </colgroup>
+	    <thead>
+		    <tr>
+			    <th scope="col">교통편</th>
+			    <th scope="col">출발지</th>
+			    <th scope="col">오는방법</th>
+		    </tr>
+	    </thead>
+	    <tbody>
+		    <tr>
+			    <td rowspan="2">고속도로<br />이용</td>
+			    <td>영동고속도로</td>
+			    <td class="al_left">남원주 IC에서 중앙고속도로진입(제천방향) - 원주,충주방면으로 진입 - 남원주 톨게이트 경유 - 충주방면 진입 후 2Km진입 - 자자감교사거리 좌회전 후 300m 직진 - 흥업사거리(남원주농협앞) 좌회전 후 400m 직진 - 강릉원주대학교 원주캠퍼스(우측)</td>
+		    </tr>
+		    <tr>
+			    <td>중앙고속도로</td>
+			    <td class="al_left">원주,충주방면으로 진입 - 남원주 톨게이트 경유 - 충주방면 2km 직진 - 지감교사거리 좌회전 후 300m 직진 - 흥업사거리(남원주농협앞) 좌회전 후 400m 직진 - 강릉원주대학교 원주캠퍼스(우측)</td>
+		    </tr>
+		    <tr>
+			    <td rowspan="5">국도 이용</td>
+			    <td>신림</td>
+			    <td class="al_left">관설동, 단구동 경유 4km 직진 - 의료원사거리에서 충주방면 좌회전 후 4.3km 직진 - 강릉원주대학교 원주캠퍼스(우측)</td>
+		    </tr>
+		    <tr>
+			    <td>충주</td>
+			    <td class="al_left">흥업면 소재지 경유 400m 직진 - 강릉원주대학교 원주캠퍼스(우측)</td>
+		    </tr>
+		    <tr>
+			    <td>문막</td>
+			    <td class="al_left">충주방향 진입 - 흥업면 소재지 흥업사거리(남원주농협앞) 좌회전 후 400m 직진 - 강릉원주대학교 원주캠퍼스(우측)</td>
+		    </tr>
+		    <tr>
+			    <td>횡성</td>
+			    <td class="al_left">충주방향 진입 - 터미널(우측)에서 계속 6km정도 직진 - E마트(좌측)에서 계속 2km직진 - 지감교 사거리 좌회전 후 300m 직진 - 흥업사거리(남원주농협앞) 좌회전 후 400m 직진 - 강릉원주대학교 원주캠퍼스(우측)</td>
+		    </tr>
+		    <tr>
+			    <td>새말</td>
+			    <td class="al_left">충주방향 진입- 남부시장에서 우회전 계속 직진 - 의료원(좌측)에서 계속 4.3m 직진 - 강릉원주대학교 원주캠퍼스(우측)</td>
+		    </tr>
+		    <tr>
+			    <td colspan="2">시내버스</td>
+			    <td class="al_left">충주방면 시내버스 정류장에서 31, 33, 34, 35번(약 30~40분 소요) - 강릉원주대학교 원주캠퍼스 앞 하차</td>
+		    </tr>
+		    <tr>
+			    <td colspan="2">기차</td>
+			    <td class="al_left">원주역에서 시내방면 시내버스 정류장에서 331, 33, 34, 35번(약 20~25분 소요) - 강릉원주대학교 원주캠퍼스 앞 하차</td>
+		    </tr>
+	    </tbody>
+    </table>
+</div>

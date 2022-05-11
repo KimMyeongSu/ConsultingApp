@@ -1,0 +1,480 @@
+﻿<script>
+    // 수정 요청 전에 존재하던 엘리먼트 숨김 처리
+    $('#map').hide();
+    $('#map').next().hide();
+    $("#address").hide();
+    $("#campus_2").hide();
+
+    var $first = $('.first');
+    var $second = $('.second');
+    var $title = $('.title');
+    var $firstCampus = $('.first-campus');
+    var $secondCampus = $('.second-campus');
+
+    function clickHandler() {
+        $firstCampus.click(function() {
+            $title[0].innerHTML = '제1캠퍼스';
+            $firstCampus.addClass('select');
+            $secondCampus.removeClass('select');
+            $first.show();
+            $second.hide();
+        });
+        $secondCampus.click(function() {
+            $title[0].innerHTML = '제2캠퍼스';
+            $firstCampus.removeClass('select');
+            $secondCampus.addClass('select');
+            $first.hide();
+            $second.show();
+        });
+    }
+    function mouseoverHandler() {
+        $firstCampus.mouseover(function() {
+            if (!$firstCampus.hasClass('select')) {
+                $firstCampus.addClass('mouseover');
+            }
+        });
+        $firstCampus.mouseout(function() {
+            $firstCampus.removeClass('mouseover');
+        });
+        $secondCampus.mouseover(function() {
+            if (!$secondCampus.hasClass('select')) {
+                $secondCampus.addClass('mouseover');
+            }
+        });
+        $secondCampus.mouseout(function() {
+            $secondCampus.removeClass('mouseover');
+        });
+    }
+    $second.hide(); // init
+    clickHandler();
+    mouseoverHandler();
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* 제1캠퍼스, 제2캠퍼스 버튼 */
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        .contents-underline {
+            width: 24px;
+            height: 2px;
+            background: #00a2a0;
+            margin: 5px 0;
+        }
+        .title {
+            font-size: 34px;
+            letter-spacing: -0.07em;
+            font-weight: 700;
+            text-align: left;
+            padding: 30px 0 30px 0;
+        }
+        .mouseover {
+            background: #d3d3d3;
+        }
+        .campus-selection {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        .campus-container {
+            display: flex;
+            margin: auto 0;
+        }
+        .first-campus {
+            width: 200px;
+            height: 48px;
+            display: flex;
+            cursor: pointer;
+            border: 1px solid #d3d3d3;
+            transition: 0.3s;
+        }
+        .second-campus {
+            width: 200px;
+            height: 48px;
+            display: flex;
+            border: 1px solid #d3d3d3;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .campus-bracket {
+            position: relative;
+            right: -130px;
+        }
+        .select {
+            color: #fff;
+            background: #0765b8;
+            border: 1px solid #0765b8;
+        }
+        .campus-content {
+            position: relative;
+            left: 3px;
+        }
+
+        /* 지도 */
+        .map {
+            width: 100%;
+            height: 350px;
+            background-image: url('resource/1187/image/map.jpg');
+        }
+        .map-contents {
+            width: 100%;
+            height: 64px;
+            display: flex;
+            background: rgba(0, 0, 0, 0.7);
+            color: #FFF;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .address-text {
+            margin-left: 3px;
+        }
+        .map-address {
+            display: flex;
+            margin: auto 0;
+        }
+        .map-number {
+            display: flex;
+        }
+        .map-number-tel {
+            display: flex;
+            margin: auto 0;
+        }
+        .map-number-fax {
+            display: flex;
+            margin: auto 0;
+            margin-left: 10px;
+        }
+        .address-backgrund {
+            background: #00a99d;
+            border-radius: 30px;
+            color: #FFF;
+            width: 40px;
+        }
+        .number-background {
+            background: #222;
+            border-radius: 30px;
+            color: #FFF;
+            width: 40px;
+        }
+        .number-text {
+            margin-left: 2px;
+        }
+
+        /* 경로  정보 */
+        .roadInfo {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        .subway-info {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid #e8e8e8;
+            background: rgba(211, 211, 211, 0.5);
+            padding: 30px;
+        }
+        .info-left {
+            display: flex;
+            flex-direction: column;
+            margin-right: 10px;
+        }
+        .subway-info-icon {
+            width: 100px;
+            height: 55px;
+            background: rgba(248, 248, 248, 0.9);
+        }
+        .info-title {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            width: fit-content;
+            text-align: left;
+        }
+        .contents-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 25px;
+        }
+        .contents-text {
+            font-size: 15px;
+            text-align: left;
+        }
+        .bus-info {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid #e8e8e8;
+            background: #fff;
+            padding: 30px;
+        }
+        .bus-info-icon {
+            width: 100px;
+            height: 55px;
+            background: rgba(248, 248, 248, 0.9);
+        }
+        .bus-info-contents {
+            display: flex;
+            flex-direction: column;
+        }
+        .bus-contents-texts {
+            display: flex;
+            flex-direction: column;
+        }
+        .bus-number {
+            font-weight: bold;
+            color: #0070ff;
+            padding-right: 5px;
+            font-size: 15px;
+        }
+        .contents-container {
+            display: flex;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .car-info {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid #e8e8e8;
+            background: rgba(211, 211, 211, 0.5);
+            padding: 25px;
+        }
+        .car-info-icon {
+            width: 100px;
+            height: 55px;
+            background: rgba(248, 248, 248, 0.9);
+        }
+        .car-subheading {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            color: #0070ff;
+            font-weight: bold;
+            padding-right: 5px;
+            text-align: left;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">제1캠퍼스</div>
+        <div class="campus-selection">
+            <div class="first-campus select">
+                <div class="campus-container">
+                    <div class="campus-content">제1캠퍼스</div>
+                    <div class="campus-bracket">></div>
+                </div>
+            </div>
+            <div class="second-campus">
+                <div class="campus-container">
+                    <div class="campus-content">제2캠퍼스</div>
+                    <div class="campus-bracket">></div>
+                </div>
+            </div>
+        </div>
+        <!-- 제 1캠퍼스 맵 -->
+        <div class="map-container first">
+            <div class="map"></div>
+            <div class="map-contents">
+                <div class="map-address">
+                    <div class="address-backgrund">주소</div>
+                    <div class="address-text">(11644) 경기도 의정부시 호암로 95(호원동) 신한대학교</div>
+                </div>
+                <div class="map-number">
+                    <div class="map-number-tel">
+                        <div class="number-background">전화</div>
+                        <div class="number-text">031-870-3114</div>
+                    </div>
+                    <div class="map-number-fax">
+                        <div class="number-background">팩스</div>
+                        <div class="number-text">031-870-2704</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 제 2캠퍼스 맵 -->
+        <div class="map-container second">
+            <!-- <div class="map"></div> -->
+            <div class="map-contents">
+                <div class="map-address">
+                    <div class="address-backgrund">주소</div>
+                    <div class="address-text">(11340) 경기도 동두천시 별마들로 40번길30(상패동) 신한대학교</div>
+                </div>
+                <div class="map-number">
+                    <div class="map-number-tel">
+                        <div class="number-background">전화</div>
+                        <div class="number-text">031-870-2900</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 제 1캠퍼스 경로 정보 -->
+        <div class="roadInfo first">
+            <div class="subway-info">
+                <div class="info-contents">
+                    <div class="info-title">지하철 안내</div>
+                    <div class="contents-title">지하철 1호선</div>
+                    <div class="contents-underline"></div>
+                    <div class="contents-text">지하철 1호선 의정부방면, 신한대역(망월사역) 하차, 도보 1분거리</div>
+                </div>
+            </div>
+            <div class="bus-info">
+                <div class="bus-info-contents">
+                    <div class="info-title">버스 안내</div>
+                    <div class="contents-title">마을버스</div>
+                    <div class="contents-underline"></div>
+                    <div class="bus-contents-texts">
+                        <div class="contents-container">
+                            <div class="bus-number">202</div><div class="contents-text">장암역 출발 → 신곡초교 하차</div>
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">202-1</div><div class="contents-text">호원동 롯데아파트 출발 → 신곡초교 하차</div>
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">203</div><div class="contents-text">제2청사 출발 → 신도,롯데아파트 하차</div>
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">203-2</div><div class="contents-text">신도10차 아파트 출발 → 신도,롯데아파트 하차</div>
+                        </div>
+                    </div>
+                    <div class="contents-title">시내(일반)버스</div>
+                    <div class="contents-underline"></div>
+                    <div class="bus-contents-texts">
+                        <div class="contents-container">
+                            <div class="bus-number">10</div><div class="contents-text">미락중 출발 → 도봉동 하차</div>    
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">136-5</div><div class="contents-text">수유동 출발 → 소요산 하차</div>    
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">36, 36-5</div><div class="contents-text">소요산 출발 → 수유동 하차</div>    
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">39</div><div class="contents-text">전곡 출발 → 수유역 하차</div>    
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">39-3</div><div class="contents-text">백의리 출발 → 수유역 하차</div>    
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">39-5</div><div class="contents-text">송내동 출발 → 도봉산 하차</div>    
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">5</div><div class="contents-text">안방학동 출발 → 가업리 하차</div>    
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">7</div><div class="contents-text">자이아파트 출발 → 노원구청 하차</div>
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">1018</div><div class="contents-text">덕정리 출발 → 종로5가 하차</div>    
+                        </div>
+                    </div>
+                    <div class="contents-title">시내(좌석)버스</div>
+                    <div class="contents-underline"></div>
+                    <div class="bus-contents-texts">
+                        <div class="contents-container">
+                            <div class="bus-number">136</div><div class="contents-text">수유동 출발 → 소요산 하차</div>
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">139</div><div class="contents-text">지행동 출발 → 수유역 하차</div>    
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">139-5</div><div class="contents-text">송내동 출발 → 수유역 하차</div>    
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">25-1</div><div class="contents-text">신산리 출발 → 도봉산역 하차</div>    
+                        </div>
+                    </div>
+                    <div class="contents-title">시내(서울)버스</div>
+                    <div class="contents-underline"></div>
+                    <div class="bus-contents-texts">
+                        <div class="contents-container">
+                            <div class="bus-number">1151</div><div class="contents-text">의정부 출발 → 수유역 하차</div>
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">106</div><div class="contents-text">의정부 출발 → 동대문 하차</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="car-info">
+                <div class="car-info-contents">
+                    <div class="info-title">자가용 안내</div>
+                    <div class="contents-title">서울방면에서 오시는 길</div>
+                    <div class="contents-underline"></div>
+                    <div class="car-contents-texts">
+                        <div>
+                            <div class="car-subheading">3번 국도 이용</div><div class="contents-text">도봉동 → 도봉산역 → 검문소 → 의정부 서부외곽도로 고가 밑으로 → 의정부 시내방면 직진 → 롯데아파트 → 현대아이파크아파트 → 망월사역 삼거리 좌회전</div>
+                        </div>
+                        <div>
+                            <div class="car-subheading">동부간선로 이용</div><div class="contents-text">상계지하차도 → 수락지하차도 → 지하철7호선 도봉차량기지(장암동) → 삼거리 좌회전 → 롯데아파트 삼거리 우회전 → 현대아이파크아파트 → 망월사역 삼거리 좌회전</div>
+                        </div>
+                    </div>
+                    <div class="contents-title">송추·일산방면에서 오시는 길</div>
+                    <div class="contents-underline"></div>
+                    <div class="car-contents-texts">
+                        <div>
+                            <div class="car-subheading">39번 국도 이용</div><div class="contents-text">송추검문소 → 울대1리 → 경민광장 사거리 우회전 → 의정부 서부외곽도로 진입 → 임시톨게이트 → 도봉동 방면 고가도로 밑으로 좌회전 → 의정부시내방면 직진 → 롯데아파트 → 현대아이파크아파트 → 망월사역 삼거리 좌회전</div>
+                        </div>
+                    </div>
+                    <div class="contents-title">동두천방면에서 오시는 길</div>
+                    <div class="contents-underline"></div>
+                    <div class="car-contents-texts">
+                        <div class="car-subheading">3번 국도 이용</div><div class="contents-text">동두천 → 송내삼거리(양주방면직진) → 양주이마트 → 양주경찰서 → 양주 롯데마트 → 양주시청(의정부방면 직진) → 주내역(의정부방면직진) → 의정부북부역 → 의정부역(역전교차로)서울방면직진 → 화룡역 → 망월사역 원도봉산 방면 우회전(신한대학)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 제 2캠퍼스 경로 정보 -->
+        <div class="roadInfo second">
+            <div class="subway-info">
+                <div class="info-contents">
+                    <div class="info-title">지하철 안내</div>
+                    <div class="contents-title">지하철 1호선</div>
+                    <div class="contents-underline"></div>
+                    <div class="contents-text">지하철 1호선 지행역 하차(셔틀버스 배차) 2번 출구</div>
+                </div>
+            </div>
+            <div class="bus-info">
+                <div class="bus-info-contents">
+                    <div class="info-title">시외버스 안내</div>
+                    <div class="contents-title">마을버스</div>
+                    <div class="contents-underline"></div>
+                    <div class="bus-contents-texts">
+                        <div class="contents-container">
+                            <div class="bus-number">39, 39-1</div><div class="contents-text">전곡 출발 → 도봉산역 하차</div>
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">39-2</div><div class="contents-text">대광리 출발 → 동두천역 하차</div>
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">39-3</div><div class="contents-text">백의리 출발 → 동두천역 하차</div>
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">39-5</div><div class="contents-text">전곡 출발 → 도봉산역 하차</div>
+                        </div>
+                        <div class="contents-container">
+                            <div class="bus-number">36, 36-5</div><div class="contents-text">상봉암동 출발 → 수유리 하차</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="car-info">
+                <div class="car-info-contents">
+                    <div class="info-title">자가용 안내</div>
+                    <div class="contents-title">서울방면에서 오시는 길</div>
+                    <div class="contents-underline"></div>
+                    <div class="car-contents-texts">
+                        <div class="car-subheading">3번 국도 이용</div>
+                        <div class="contents-text">도봉산역(3번국도) → 의정부역(3번국도) → 덕정사거리(3번국도) → 동두천입구 → 강변우회로 → 신천교사거리(좌회전) → 신한대학교 동두천 캠퍼스 입구</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<template>
+  <div>
+    <p class="h3_box"><img src="img/common/h3_box_green.png" /></p>
+    <p class="h3_title">반영비율</p>
+    <!-- // 타이틀 -->
+    <div class="box mt-20">
+      <table class="table1">
+        <tr>
+          <th>사정단계</th>
+          <th>선발비율</th>
+          <th>교과성적</th>
+          <th>비교과성적</th>
+          <th>면접고사</th>
+          <th>수능최저<br />학력기준</th>
+          <th>전형총점</th>
+        </tr>
+        <tr>
+          <td>1단계</td>
+          <td>300%</td>
+          <td>100%</td>
+          <td>-</td>
+          <td>-</td>
+          <td>X</td>
+          <td>360</td>
+        </tr>
+        <tr>
+          <td>2단계</td>
+          <td>100%</td>
+          <td>72%</td>
+          <td>8%</td>
+          <td>20%</td>
+          <td>O</td>
+          <td>500</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style></style>

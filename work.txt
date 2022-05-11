@@ -1,0 +1,62 @@
+** 개인별 작업 진행은 어떻게 할지? 
+
+대학별로 컴포넌트?
+*각 컴포넌트 별 UnivID 분기 
+
+컴포넌트 기능별 분리 
+
+프론트에서 기초데이터 -> 서비스아이디 
+/UnivServiceID 
+main /UnivServiceID 
+
+Input 
+Main 
+UnivServiceID 분기처리
+메인화면 (자료실 , 모의진단 , 입학관리자) 
+1.자료실 - 상담자료 , 학과소개 , 입시일정 , 찾아오는길 
+    -상담자료 (PDF 카드 구성 )
+    -학과소개 (modal 창 기초데이터 학과소개)
+    -입시일정 (html 입시일정 )
+    -찾아오는길 (html 찾아오는길)           
+2.모의진단
+    - 성적입력 국어,수학,영어,탐구,한국사  {InputList}
+    - 성적입력 키패드 {InputKeypad}
+    - 결과화면 ( 목록형 , 그래프형 , 복합형 )  
+    - 각 Major별 상세화면 (상단 카드 3개 나의위치 , 경쟁률 , 반영비율) 우측 성적계산결과 
+    - 아래쪽 화면은 지금까진 각기 작업한 addioninfo1.html
+모든대학 공통으로 사용하는부분 (THE)
+탑메뉴 - (메뉴 , 경쟁률 , 자료실) 
+메뉴 (모의진단 , 입시일정 , 자료실 , 입학관리자)
+
+탑패널(이전,성적입력)
+
+
+작업진행 - End point 
+*대학별 js mix 처리
+
+
+===================================================
+* input component 에서 받은 성적데이터는 다른 컴포넌트에서도 사용하는 데이터 
+input component 에서 데이터 State 로 처리 
+
+* 컴포넌트 분할 사용하는 컴포넌트는 components에 화면 구성하는 router는 Views에 
+ 라우팅은 먼저 메인에서 3개 모의진단(input) , 자료실(ReferencedData) , 관리자 (Admin)
+
+Store에서 Service 기초 정보 가져온다고 가정하고, 
+ 
+Views 폴더에 .vue 파일에는 라우팅 처리만 
+기능들 .vue file 들은 components 에다가 
+
+javascript this , 비동기 this 확인 
+콜백과 프로미스 , 프로미스가 나오게된 배경은? 
+
+api를 vuex에서 호출할땐 actions에서 함 
+
+vue map관련 확인필요 ...map 이거 
+api-> index.js에 api들 정리 
+
+* 동적 라우트 매핑   ? 
+addioninfo로 보내서 그냥 내부에서 조건처리 
+
+
+

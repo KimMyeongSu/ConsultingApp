@@ -1,0 +1,93 @@
+﻿<script>
+    $("#address").hide();
+</script>
+
+<span onclick="$('#kwangju').show(); $('#yeosu').hide(); GoPoint(35.1759590,126.908477);" style="cursor:pointer">
+    <li>
+        - <u>광주캠퍼스 : 광주광역시 북구 용봉로 77</u>
+    </li>
+</span>
+<span onclick="$('#yeosu').show(); $('#kwangju').hide(); GoPoint(34.7754209,127.698949);" style="cursor:pointer">
+    <li>
+        - <u>여수캠퍼스 : 전남 여수시 대학로 50 </u>
+    </li>
+</span>
+
+<h3>대중교통을 이용하는 경우</h3>
+<div id="kwangju">
+<table class="darkgray_tbl2 bline mb14" cellpadding="0" cellspacing="0" border="0">
+	<colgroup>
+	<col width="15%" />
+	<col width="85%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">교통편</th>
+			<th scope="col">오는방법</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+            <th>고속버스, 시외버스</th>
+            <td class="left">
+                광천동 종합버스터미널에서 목적지 정류소에 맞는 버스 탑승<br />
+                - 전남대 정류소(정문) : 풍암26, 첨단30, 상무64, 518<br />
+                - 전남대후문 정류소 : 일곡38
+            </td>
+        </tr>
+		<tr>
+            <th>기차</th>
+            <td class="left">
+                광주역에서 목적지 정류소에 맞는 버스에 탑승<br />
+                - 전남대 정류소(정문) : 첨단30, 금남57, 두암81(상행), 일곡180, 518<br />
+                - 전남대후문 정류소 : 진월07, 용봉83, 일곡180
+            </td>
+        </tr>
+        <tr>
+            <th>시내버스</th>
+            <td class="left">
+                - 전남대 정류소 : 풍암26, 첨단30, 금남57, 상무64, 두암81(상행), 일곡180, 518<br />
+                - 전남대후문 정류소 : 진월07, 문흥18, 일곡180, 용전184, 송정19, 일곡28, 일곡38, 문흥80, 용봉83, 충효18, 419
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div id="yeosu" style="display:none">
+<table class="darkgray_tbl2 bline mb14" cellpadding="0" cellspacing="0" border="0">
+	<colgroup>
+	<col width="15%" />
+	<col width="85%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">교통편</th>
+			<th scope="col">오는방법</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+            <th>시외버스</th>
+            <td class="left">
+                여수 시외버스터미널에서 버스를 타고 전남대학교 여수캠퍼스(둔덕동)으로 이동<br />
+                - 전남대학교 여수캠퍼스 정류소 : 5, 81, 666<br />
+                - 전남대후문 여수캠퍼스 후문 정류소 : 5, 18, 73, 76, 666
+            </td>
+        </tr>
+		<tr>
+            <th>기차</th>
+            <td class="left">
+                여천역에서 시내버스 18번을 타고 전남대학교 여수캠퍼스 후문 정류소에서 하차
+            </td>
+        </tr>
+        <tr>
+            <th>시내버스</th>
+            <td class="left">
+                - 전남대여수캠퍼스 정류소 : 5, 6, 80,81, 666, 777<br />
+                - 전남대병원 오거리 정류소 : 5, 18, 73, 76, 91, 93, 666, 777
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
